@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoMoon - Nhắc Lịch Âm Tối Giản & Hiện Đại</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* DESIGN SYSTEM VARIABLES - Dựa trên design.md */
+        :root {
+            --primary: #2036bd;
+            --primary-container: #3e52d5;
+            --secondary: #006c49;
+            --secondary-container: #6cf8bb;
+            --background: #f8f9ff;
+            --surface: #f8f9ff;
+            --surface-container-lowest: #ffffff;
+            --on-surface: #0b1c30;
+            --on-surface-variant: #454654;
+            --outline-variant: #c5c5d7;
+            --lunar-accent: #cbdbf5;
+
+            --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.05);
+            /* Card Level 1dp */
+            --shadow-2: 0 8px 20px rgba(0, 0, 0, 0.1);
+            /* Active Level 2dp */
+
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--background);
+            color: var(--on-surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        p.body-lg {
+            font-size: 18px;
+            color: var(--on-surface-variant);
+            margin-bottom: 32px;
+        }
+
+        /* UTILS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* HEADER */
+        .header {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--outline-variant);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: #ffffff;
+            /* Trăng khuyết */
+            border-radius: 50%;
+            top: 2px;
+            left: 10px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--on-surface);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--on-surface-variant);
+            margin-left: 32px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: var(--shadow-1);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-container);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .btn-primary-sm {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 10px;
+        }
+
+        .btn-secondary {
+            background: #111;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin: 5px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 80px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--secondary-container);
+            color: var(--secondary);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .app-mockup {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 48px;
+            box-shadow: var(--shadow-2);
+            border: 12px solid #1a1a1a;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 100px 0;
+            background: var(--surface-container-low);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--surface-container-lowest);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-1);
+            transition: 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .f-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--on-surface-variant);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* SHOWCASE */
+        .showcase {
+            padding: 100px 0;
+        }
+
+        .showcase-box {
+            background: var(--surface-container-lowest);
+            padding: 80px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-1);
+        }
+
+        .app-screen {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 36px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: var(--shadow-2);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .feature-list li {
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            font-weight: 500;
+            color: var(--on-surface-variant);
+        }
+
+        .feature-list li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* FOOTER / CTA */
+        .footer {
+            padding: 100px 0 40px;
+            background: #213145;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-card {
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-card h1 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .cta-card p {
+            opacity: 0.8;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .app-download-section {
+            padding: 80px 0;
+            background: transparent;
+            color: var(--on-surface);
+        }
+
+        .app-download-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .app-download-title {
+            font-size: 64px;
+            font-weight: 700;
+            color: #0b1437;
+            /* Very dark navy blue */
+            margin-bottom: 8px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .app-download-subtitle {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0b1437;
+            margin-bottom: 48px;
+        }
+
+        .app-download-grid {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            gap: 24px 48px;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .app-download-qr {
+            width: 160px;
+            height: 160px;
+        }
+
+        .app-download-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .app-download-stores {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .store-badge img {
+            height: 48px;
+            width: auto;
+        }
+
+        .app-rating {
+            text-align: center;
+            grid-column: 1;
+        }
+
+        .app-rating .stars {
+            color: #ffb800;
+            /* Yellow star color */
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .app-rating .rating-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b1437;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            opacity: 0.5;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .app-download-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .app-download-title {
+                font-size: 42px;
+            }
+
+            .app-download-qr {
+                margin: 0 auto;
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 850px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .showcase-box {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">GoMoon</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#features">Tính năng</a>
+                <a href="#showcase">Giao diện</a>
+                <a href="#download" class="btn-primary-sm">Tải ngay</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container grid-2">
+            <div class="hero-content">
+                <span class="tag">Nhắc Lịch Âm Tối Giản</span>
+                <h1>Trân trọng truyền thống,<br>An tâm hiện tại.</h1>
+                <p class="body-lg">GoMoon giúp bạn quản lý ngày giỗ, lễ tết âm lịch dễ dàng như xem đồng hồ. Một lần
+                    nhập liệu, nhắc nhở mãi mãi.</p>
+                <div class="hero-btns">
+                    <a href="#download" class="btn-primary">Tải GoMoon Miễn Phí</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./widget-ios.png" alt="GoMoon Widget Highlight" class="app-mockup">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Chức năng cốt lõi,<br>Thao tác tinh giản.</h2>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <span class="f-icon">⚡</span>
+                    <h3>Nhập nhanh, quên đi lo</h3>
+                    <p>Nhập đầy đủ thông tin một lần rồi GoMoon tự động nhắc bạn hàng năm. Không cần phải ghi chú lại,
+                        không sợ quên ngày.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="f-icon">🎯</span>
+                    <h3>Ngày nổi bật, dễ thấy</h3>
+                    <p>Các sự kiện quan trọng nổi lên trên trang chủ, những ngày bình thường thu hẹp lại. Chỉ nhìn là
+                        biết hôm nay cần làm gì.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="f-icon">✨</span>
+                    <h3>Nhắc ngay trên khóa màn hình</h3>
+                    <p>Widget nhỏ gọn hiển thị những sự kiện sắp tới. Mất 2 giây kiểm tra, đỡ tốn thời gian lục tìm
+                        trong app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <div class="showcase-box">
+                <div class="grid-2">
+                    <div class="showcase-img">
+                        <img src="home.png" alt="GoMoon App Interface" class="app-screen">
+                    </div>
+                    <div class="showcase-text">
+                        <h2>Dành cho những người bận rộn</h2>
+                        <p>Chúng tôi hiểu bạn có rất nhiều việc phải lo toan. GoMoon được thiết kế để bạn mất ít thời
+                            gian nhất nhưng hiệu quả nhất.</p>
+                        <ul class="feature-list">
+                            <li>Lịch âm hiển thị tinh tế (Lunar-date style)</li>
+                            <li>Hệ thống icon phân loại dễ nhận diện</li>
+                            <li>Tối ưu hóa cho trải nghiệm một tay</li>
+                            <li>Hỗ trợ tiếng Việt hoàn chỉnh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="cta-card">
+                <h1>Bắt đầu ngay hôm nay</h1>
+                <p>Ghi chú một lần, nhắc nhở mãi mãi. Tải GoMoon để luôn là người chu toàn trong gia đình.</p>
+            </div>
+
+            <div id="download" class="app-download-grid">
+                <div class="app-download-qr">
+                    <img src="./qr-code.png" alt="QR Code">
+                </div>
+                <div class="app-download-stores">
+                    <a href="https://apps.apple.com/app/gomoon" target="_blank" class="store-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="Download on the App Store">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.gomoon" target="_blank"
+                        class="store-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Get it on Google Play">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 GoMoon App. Mọi quyền được bảo lưu. nguyenhongphuc98@gmail.com.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
