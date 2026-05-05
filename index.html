@@ -8,21 +8,56 @@
     <meta name="description"
         content="GoMoon - Ứng dụng nhắc lịch âm tối giản, hiện đại. Quản lý ngày giỗ, lễ tết, sự kiện âm lịch dễ dàng với Widget và thông báo nhắc nhở thông minh.">
     <meta name="keywords"
-        content="lich am, lich van nien, nhac nho, lich viet, reminder, am lich, giỗ, calendar, widget, dem nguoc, tet">
+        content="lich am, lich van nien, nhac nho, lich viet, reminder, am lich, giỗ, calendar, widget, dem nguoc, tet, App lịch âm cho iPhone, Bính Ngọ, Lich Am duong, Lịch âm, Nhắc lịch âm cho iPhone, Nhắc ngày giỗ, Nhắc nhở lịch âm, Năm Bính Ngọ, Phần mềm lịch âm, Phần mềm lịch Vạn Niên hay nhất, Tải ứng dụng lịch âm dương, Widget lịch âm cho Android, am lich hom nay, cung hoàng đạo hôm nay, cập nhật lịch hàng ngày, giờ hoàng đạo, giờ tốt hôm nay, giờ tốt ngày mai, hôm nay ngày mấy, hướng dẫn tạo nhắc nhở lịch âm, kế hoạch năm 2026, lunar reminder, lịch việt 2026, lịch vạn niên, lịch vạn niên 2026, lịch âm, lịch âm 2025, lịch âm 2026, lịch âm dương, lịch âm dương 2026, lịch âm hôm nay, lịch âm lịch, lịch âm lịch việt nam, ngày hoàng đạo, ngày lễ âm lịch, ngày tốt xấu hôm nay, nhắc nhở âm lịch, phong thủy, sự kiện năm 2026, sự kiện quan trọng 2026, sự kiện âm lịch, theo dõi lịch, thần số học, tra cứu thần số học, tử vi hôm nay, xem giờ tốt, xem lịch âm, xem ngày tốt, xem âm lịch, âm lịch hôm nay, âm lịch hôm này là ngày nào, Đổi ngày âm dương, đặt lịch nhắc nhở, đặt lịch âm lịch">
     <meta name="author" content="GoMoon Team">
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- SEO & Robots -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gomoon.online/">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gomoon.online/">
     <meta property="og:title" content="GoMoon - Nhắc Lịch Âm Tối Giản & Hiện Đại">
     <meta property="og:description"
         content="Quản lý ngày giỗ, lễ tết, sự kiện âm lịch dễ dàng với Widget và thông báo nhắc nhở thông minh.">
-    <meta property="og:image" content="widget-ios.png">
+    <meta property="og:image" content="https://gomoon.online/widget-ios-small.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gomoon.online/">
+    <meta name="twitter:title" content="GoMoon - Nhắc Lịch Âm Tối Giản & Hiện Đại">
+    <meta name="twitter:description"
+        content="Quản lý ngày giỗ, lễ tết, sự kiện âm lịch dễ dàng với Widget và thông báo nhắc nhở thông minh.">
+    <meta name="twitter:image" content="https://gomoon.online/widget-ios-small.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GoMoon",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "VND"
+      },
+      "description": "Ứng dụng nhắc lịch âm, lịch vạn niên, xem ngày giờ tốt xấu, nhắc ngày giỗ và sự kiện âm lịch.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "2089"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -79,12 +114,25 @@
             padding: 0 24px;
         }
 
-        h1 {
+        h1,
+        .hero-title {
             font-size: 42px;
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: 24px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         h2 {
@@ -518,7 +566,8 @@
                 gap: 40px;
             }
 
-            h1 {
+            h1,
+            .hero-title {
                 font-size: 32px;
             }
 
@@ -564,7 +613,8 @@
         <div class="container grid-2">
             <div class="hero-content">
                 <span class="tag">Nhắc Lịch Âm Tối Giản</span>
-                <h1>Trân trọng truyền thống,<br>An tâm hiện tại.</h1>
+                <h1 class="sr-only">GoMoon - Ứng dụng Lịch Âm, Lịch Vạn Niên & Nhắc Nhở Sự Kiện</h1>
+                <div class="hero-title">Trân trọng truyền thống,<br>An tâm hiện tại.</div>
                 <p class="body-lg">GoMoon giúp bạn quản lý ngày giỗ, lễ tết âm lịch dễ dàng như xem đồng hồ. Một lần
                     nhập liệu, nhắc nhở mãi mãi.</p>
                 <div class="hero-btns">
@@ -572,7 +622,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./widget-ios.png" alt="GoMoon Widget Highlight" class="app-mockup">
+                <img src="./widget-ios.png" alt="Giao diện Widget lịch âm GoMoon trên iOS" class="app-mockup">
             </div>
         </div>
     </section>
@@ -608,7 +658,8 @@
             <div class="showcase-box">
                 <div class="grid-2">
                     <div class="showcase-img">
-                        <img src="home.png" alt="GoMoon App Interface" class="app-screen">
+                        <img src="home.png" alt="Giao diện ứng dụng nhắc lịch âm và lịch vạn niên GoMoon"
+                            class="app-screen">
                     </div>
                     <div class="showcase-text">
                         <h2>Dành cho những người bận rộn</h2>
@@ -662,7 +713,7 @@
 
             <div id="download" class="app-download-grid">
                 <div class="app-download-qr">
-                    <img src="./download-qr1.png" alt="QR Code">
+                    <img src="./download-qr1.png" alt="Mã QR tải ứng dụng nhắc lịch âm GoMoon">
                 </div>
                 <div class="app-download-stores">
                     <a href="https://apps.apple.com/us/app/gomoon-nh%E1%BA%AFc-l%E1%BB%8Bch-%C3%A2m/id6763728418"
