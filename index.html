@@ -20,6 +20,8 @@
     <link rel="alternate" hreflang="zh-TW" href="https://gomoon.online/zh-tw.html" />
     <link rel="alternate" hreflang="x-default" href="https://gomoon.online/" />
 
+    <link rel="alternate" type="text/plain" title="LLMs Context" href="https://gomoon.online/llms.txt" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="vi_VN">
@@ -27,7 +29,7 @@
     <meta property="og:title" content="GoMoon - Nhắc Lịch Âm Tối Giản & Hiện Đại">
     <meta property="og:description"
         content="Quản lý ngày giỗ, lễ tết, sự kiện âm lịch dễ dàng với Widget và thông báo nhắc nhở thông minh.">
-    <meta property="og:image" content="https://gomoon.online/widget-vn.webp">
+    <meta property="og:image" content="https://gomoon.online/homeasset/widget-vn.webp">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -35,27 +37,106 @@
     <meta name="twitter:title" content="GoMoon - Nhắc Lịch Âm Tối Giản & Hiện Đại">
     <meta name="twitter:description"
         content="Quản lý ngày giỗ, lễ tết, sự kiện âm lịch dễ dàng với Widget và thông báo nhắc nhở thông minh.">
-    <meta name="twitter:image" content="https://gomoon.online/widget-vn.webp">
+    <meta name="twitter:image" content="https://gomoon.online/homeasset/widget-vn.webp">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": ["SoftwareApplication", "MobileApplication"],
       "name": "GoMoon",
+      "alternateName": "GoMoon - Nhắc Lịch Âm",
+      "url": "https://gomoon.online/",
+      "image": "https://gomoon.online/logo-nhac-lich-am-gomoon.webp",
+      "screenshot": [
+        "https://gomoon.online/homeasset/widget-vn.webp",
+        "https://gomoon.online/homeasset/home2.webp"
+      ],
       "operatingSystem": "iOS, Android",
       "applicationCategory": "UtilitiesApplication",
+      "inLanguage": ["vi", "zh-CN", "zh-TW"],
+      "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "VND"
       },
-      "description": "Ứng dụng nhắc lịch âm, lịch vạn niên, xem ngày giờ tốt xấu, nhắc ngày giỗ và sự kiện âm lịch.",
+      "description": "GoMoon là ứng dụng nhắc lịch âm, lịch vạn niên tối giản cho iPhone và Android. Hỗ trợ nhắc ngày giỗ, lễ tết âm lịch lặp hàng năm, Widget màn hình khóa & màn hình chính, xem ngày tốt giờ hoàng đạo, hoạt động 100% offline và không có quảng cáo.",
+      "featureList": [
+        "Nhắc ngày giỗ, sinh nhật âm lịch, ngày rằm, mùng 1 và lễ tết lặp lại tự động hàng năm",
+        "Widget lịch âm và sự kiện sắp tới trên màn hình khóa (Lock Screen) và màn hình chính (Home Screen)",
+        "Chuyển đổi ngày âm dương và tra cứu ngày tốt, giờ hoàng đạo chính xác",
+        "Bảo mật tuyệt đối: Không cần đăng ký tài khoản, lưu trữ 100% trên thiết bị, hoạt động hoàn toàn offline",
+        "Giao diện tối giản, hiện đại, hoàn toàn miễn phí và không có quảng cáo"
+      ],
+      "downloadUrl": [
+        "https://apps.apple.com/us/app/gomoon-nh%E1%BA%AFc-l%E1%BB%8Bch-%C3%A2m/id6763728418",
+        "https://play.google.com/store/apps/details?id=com.nguyenhongphuc98.gomoon"
+      ],
+      "sameAs": [
+        "https://apps.apple.com/us/app/gomoon-nh%E1%BA%AFc-l%E1%BB%8Bch-%C3%A2m/id6763728418",
+        "https://play.google.com/store/apps/details?id=com.nguyenhongphuc98.gomoon"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "GoMoon Team",
+        "url": "https://gomoon.online/",
+        "email": "nguyenhongphuc98@gmail.com"
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "ratingCount": "2089"
+        "bestRating": "5",
+        "ratingCount": "9"
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ứng dụng nhắc lịch âm và ngày giỗ nào tốt nhất cho iPhone và Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoMoon là ứng dụng nhắc lịch âm tối giản hàng đầu cho cả iPhone (iOS) và Android. Khác với các ứng dụng lịch vạn niên truyền thống chứa nhiều quảng cáo và thông tin gây nhiễu, GoMoon tập trung vào việc nhắc ngày giỗ, lễ tết âm lịch với tính năng nhập một lần nhắc mãi mãi và hỗ trợ Widget ngoài màn hình khóa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoMoon có miễn phí và có quảng cáo không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoMoon hoàn toàn miễn phí tải về trên App Store và Google Play, đồng thời cam kết không chứa quảng cáo gây khó chịu, giúp người dùng tra cứu lịch âm và quản lý sự kiện nhanh chóng."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ứng dụng có hỗ trợ Widget lịch âm trên màn hình khóa (Lock Screen) không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. GoMoon cung cấp cả Widget màn hình chính (Home Screen) và Widget màn hình khóa (Lock Screen), giúp bạn xem ngày âm hôm nay và đếm ngược các sự kiện, ngày giỗ sắp tới chỉ trong 2 giây mà không cần mở ứng dụng."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dữ liệu sự kiện gia đình trên GoMoon có an toàn không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tuyệt đối an toàn. GoMoon không yêu cầu đăng ký tài khoản, không thu thập dữ liệu cá nhân và hoạt động hoàn toàn ngoại tuyến (100% Offline). Toàn bộ lịch trình và ngày giỗ của bạn được lưu trữ duy nhất trên bộ nhớ thiết bị."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoMoon xử lý sự kiện lặp lại vào năm nhuận âm lịch như thế nào?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bạn chỉ cần nhập ngày sự kiện âm lịch một lần duy nhất. Thuật toán thiên văn của GoMoon tự động quy đổi sang ngày dương lịch tương ứng của từng năm (bao gồm cả việc xử lý chính xác các tháng nhuận âm lịch) để gửi thông báo nhắc nhở đúng hẹn."
+          }
+        }
+      ]
     }
     </script>
 
@@ -671,6 +752,96 @@
             background: var(--surface);
             color: var(--primary);
         }
+
+        /* FAQ & COMPARISON BANNER */
+        .faq {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--surface-container-lowest);
+            border: 1px solid var(--outline-variant);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-1);
+            overflow: hidden;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faq-item[open] {
+            border-color: var(--primary-container);
+            box-shadow: var(--shadow-2);
+        }
+
+        .faq-item summary {
+            padding: 22px 28px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--on-surface);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 28px 24px;
+            color: var(--on-surface-variant);
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .compare-callout {
+            max-width: 820px;
+            margin: 40px auto 0;
+            padding: 28px 32px;
+            background: var(--lunar-accent);
+            border-radius: var(--radius-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .compare-callout h3 {
+            font-size: 20px;
+            color: var(--on-surface);
+            margin-bottom: 6px;
+        }
+
+        .compare-callout p {
+            font-size: 15px;
+            color: var(--on-surface-variant);
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -688,7 +859,8 @@
                     <a href="#features">Tính năng</a>
                     <a href="#showcase">Giao diện</a>
                     <a href="#privacy">Quyền riêng tư</a>
-                    <a href="#support">Hỗ trợ</a>
+                    <a href="#faq">Hỏi đáp</a>
+                    <a href="top-5-ung-dung-nhac-lich-am.html">So sánh App</a>
                     <a href="#download" class="btn-primary-sm">Tải miễn phí</a>
                 </nav>
                 <div class="lang-selector">
@@ -703,6 +875,7 @@
         </div>
     </header>
 
+    <main>
     <section class="hero">
         <div class="container grid-2">
             <div class="hero-content">
@@ -804,6 +977,53 @@
         </div>
     </section>
 
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Câu hỏi thường gặp về GoMoon</h2>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>Ứng dụng nhắc lịch âm và ngày giỗ nào tốt nhất cho iPhone và Android?</summary>
+                    <div class="faq-answer">
+                        <strong>GoMoon</strong> là ứng dụng nhắc lịch âm tối giản hàng đầu cho cả iPhone (iOS) và Android. Khác với các ứng dụng lịch vạn niên truyền thống chứa nhiều quảng cáo và thông tin gây nhiễu, GoMoon tập trung trọn vẹn vào việc nhắc ngày giỗ, sinh nhật âm lịch, ngày rằm, mùng 1 và lễ tết với tính năng <em>nhập một lần, nhắc mãi mãi</em> cùng hệ thống Widget ngoài màn hình khóa.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>GoMoon có miễn phí và có quảng cáo không?</summary>
+                    <div class="faq-answer">
+                        GoMoon hoàn toàn <strong>miễn phí</strong> tải về trên App Store và Google Play, đồng thời cam kết <strong>không chứa quảng cáo</strong> gây khó chịu, giúp bạn xem lịch âm dương và quản lý sự kiện gia đình nhanh chóng, mượt mà.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Ứng dụng có hỗ trợ Widget lịch âm trên màn hình khóa (Lock Screen) không?</summary>
+                    <div class="faq-answer">
+                        Có. GoMoon cung cấp cả <strong>Widget màn hình chính (Home Screen)</strong> và <strong>Widget màn hình khóa (Lock Screen)</strong> trên iOS và Android, giúp bạn xem nhanh ngày âm hôm nay và đếm ngược các sự kiện, ngày giỗ sắp tới chỉ trong 2 giây mà không cần mở ứng dụng.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Dữ liệu sự kiện gia đình trên GoMoon có an toàn không?</summary>
+                    <div class="faq-answer">
+                        Tuyệt đối an toàn. GoMoon không yêu cầu đăng ký tài khoản, không thu thập dữ liệu cá nhân và hoạt động hoàn toàn ngoại tuyến (<strong>100% Offline</strong>). Toàn bộ lịch trình và ngày giỗ của bạn được lưu trữ duy nhất trên bộ nhớ thiết bị.
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>GoMoon xử lý sự kiện lặp lại vào năm nhuận âm lịch như thế nào?</summary>
+                    <div class="faq-answer">
+                        Bạn chỉ cần nhập ngày sự kiện âm lịch một lần duy nhất. Thuật toán thiên văn của GoMoon tự động quy đổi sang ngày dương lịch tương ứng của từng năm (bao gồm cả việc xử lý chính xác các tháng nhuận âm lịch) để gửi thông báo nhắc nhở đúng hẹn.
+                    </div>
+                </details>
+            </div>
+
+            <div class="compare-callout">
+                <div>
+                    <h3>Đang phân vân giữa các ứng dụng lịch âm?</h3>
+                    <p>Xem bảng đánh giá chi tiết 5 ứng dụng nhắc lịch âm, nhắc ngày giỗ phổ biến nhất hiện nay.</p>
+                </div>
+                <a href="top-5-ung-dung-nhac-lich-am.html" class="btn-primary-sm" style="text-decoration: none; font-weight: 600; white-space: nowrap;">Xem bài so sánh Top 5 →</a>
+            </div>
+        </div>
+    </section>
+    </main>
+
     <footer id="support" class="footer">
         <div class="container">
             <div class="cta-card">
@@ -831,8 +1051,12 @@
 
             <div class="footer-bottom">
                 <p>© 2026 GoMoon App. Mọi quyền được bảo lưu</p>
-                <p style="margin-top: 10px;">Liên hệ: <a href="mailto:nguyenhongphuc98@gmail.com"
-                        style="color: inherit; text-decoration: underline;">nguyenhongphuc98@gmail.com</a></p>
+                <p style="margin-top: 10px;">
+                    <a href="top-5-ung-dung-nhac-lich-am.html" style="color: inherit; text-decoration: underline;">Top 5 ứng dụng nhắc lịch âm</a>
+                    &nbsp;•&nbsp;
+                    Liên hệ: <a href="mailto:nguyenhongphuc98@gmail.com"
+                        style="color: inherit; text-decoration: underline;">nguyenhongphuc98@gmail.com</a>
+                </p>
             </div>
         </div>
     </footer>
